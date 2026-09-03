@@ -11,7 +11,8 @@ const productoSchema = new mongoose.Schema({
     required: [true, 'El código SKU es obligatorio'],
     unique: true,
     uppercase: true,
-    trim: true
+    trim: true,
+    match: [/^[A-Z]{3}-[0-9]{3}$/, 'El código SKU debe tener el formato ABC-123']
   },
   precio: {
     type: Number,
