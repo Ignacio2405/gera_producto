@@ -12,11 +12,20 @@
   "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mongoose": "^9.9.4",
     "morgan": "^1.12.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ignacio2405/gera_producto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ignacio2405/gera_producto/issues"
+  },
+  "homepage": "https://github.com/Ignacio2405/gera_producto#readme"
 }
