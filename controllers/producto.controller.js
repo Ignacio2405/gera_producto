@@ -18,7 +18,9 @@ export const crearProducto = async (req, res) => {
 // Obtener todos los productos (con datos de proveedor poblados)
 export const obtenerProductos = async (req, res) => {
   try {
-    const productos = await Producto.find();
+    const categoria = req.query.categoria?.trim().toUpperCase();
+    const filtro = categoria ? { categoria } : {};
+    const productos = await Producto.find(filtro);
     res.status(200).json(productos);
   } catch (error) {
     res.status(500).json({
