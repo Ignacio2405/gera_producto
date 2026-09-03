@@ -28,7 +28,7 @@ const productoSchema = new mongoose.Schema({
     type: String,
     required: [true, 'La categoría es obligatoria'],
     enum: {
-      values: ['HARDWARE', 'SOFTWARE', 'INSUMOS', 'SERVICIOS'],
+      values: ['HARDWARE', 'SOFTWARE', 'INSUMOS', 'SERVICIOS', 'PERIFERICOS'],
       message: '{VALUE} no es una categoría válida'
     }
   },

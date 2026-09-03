@@ -80,7 +80,11 @@ export const actualizarProducto = async (req, res) => {
 export const eliminarProducto = async (req, res) => {
   try {
     const { id } = req.params;
-    const productoEliminado = await Producto.findByIdAndDelete(id);
+    const productoEliminado = await Producto.findByIdAndUpdate(
+      id,
+      { activo: false },
+      { new: true }
+    );
 
     if (!productoEliminado) {
       return res.status(404).json({
