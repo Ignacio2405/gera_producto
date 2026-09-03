@@ -18,8 +18,7 @@ export const crearProducto = async (req, res) => {
 // Obtener todos los productos (con datos de proveedor poblados)
 export const obtenerProductos = async (req, res) => {
   try {
-    // .populate('proveedor') reemplaza el ID del proveedor con sus datos
-    const productos = await Producto.find().populate('proveedor', 'razonSocial cuit contacto');
+    const productos = await Producto.find();
     res.status(200).json(productos);
   } catch (error) {
     res.status(500).json({
@@ -33,7 +32,7 @@ export const obtenerProductos = async (req, res) => {
 export const obtenerProductoPorId = async (req, res) => {
   try {
     const { id } = req.params;
-    const producto = await Producto.findById(id).populate('proveedor', 'razonSocial cuit contacto');
+    const producto = await Producto.findById(id);
 
     if (!producto) {
       return res.status(404).json({
@@ -60,7 +59,7 @@ export const actualizarProducto = async (req, res) => {
       id,
       datosNuevos,
       { new: true, runValidators: true }
-    ).populate('proveedor', 'razonSocial cuit contacto');
+    );
 
     if (!productoActualizado) {
       return res.status(404).json({
